@@ -129,3 +129,54 @@ Speaker + Timestamp + Text
     |
     v
 Structured JSON Output
+
+---------------------------------------------------------------------------------
+How to Run Gemini Media Transcriber
+
+1. Open the Project Folder
+
+Open the terminal in:
+
+genai-projects/gemini-media-transcriber
+
+2. Create a Virtual Environment
+
+python -m venv .venv
+
+Activate it:
+
+.\.venv\Scripts\Activate.ps1
+
+3. Install Required Packages
+
+pip install -U google-genai python-dotenv moviepy
+
+4. Create a .env File
+
+Create a file named:
+
+.env
+
+Add your Gemini API key:
+
+GEMINI_API_KEY=your_gemini_api_key_here
+
+5. Add the Video File
+
+Place the video file on your system and update the path in the Python script.
+
+Example:
+
+video_file = r"C:\Users\YourName\Videos\sample.mp4"
+
+6. Run the Script
+
+python .\2_Assignment_Video.py
+
+7. Check the Output
+
+The transcription will be displayed in the terminal.
+
+After successful execution, the output will also be saved as:
+
+transcription.json
