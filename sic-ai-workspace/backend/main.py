@@ -69,9 +69,9 @@ HEADERS = {
 # ---------------------------------------------------------
 
 app = FastAPI(
-    title="Gemini AI Backend",
-    description="FastAPI backend for Gemini AI",
-    version="1.0"
+    title="SIC AI Backend",
+    docs_url="/api/docs",
+    openapi_url="/api/openapi.json"
 )
 
 
@@ -218,7 +218,7 @@ def call_gemini(parts):
 # 7. Root endpoint
 # ---------------------------------------------------------
 
-@app.get("/")
+@app.get("/api")
 def read_root():
 
     return {
@@ -229,8 +229,7 @@ def read_root():
 # ---------------------------------------------------------
 # 8. Text Summarization Endpoint
 # ---------------------------------------------------------
-
-@app.post("/summarize")
+@app.post("/api/summarize")
 def summarize(text: str = Form(...)):
 
     if not text.strip():
@@ -275,7 +274,7 @@ Summarize the following paragraph clearly and concisely:
 # 9. Image Explanation Endpoint
 # ---------------------------------------------------------
 
-@app.post("/explain-image")
+@app.post("/api/explain-image")
 def explain_image(
     file: UploadFile = File(...)
 ):
@@ -358,7 +357,7 @@ Describe:
 # 10. Chatbot Endpoint
 # ---------------------------------------------------------
 
-@app.post("/chat")
+@app.post("/api/chat")
 def chat(
     message: str = Form(...)
 ):
